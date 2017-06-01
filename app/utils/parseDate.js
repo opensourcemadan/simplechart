@@ -59,3 +59,20 @@ export function format(timestamp, formatString) {
 export function disproveList(formatString, list) {
   return list.find((dateString) => !validate(dateString, formatString)) || null;
 }
+
+export function getD3TimeFormat(formatString = '') {
+  // TODO: Finish mapping
+  const formatMap = {
+    YYYY: '%Y',
+  };
+
+  let timeFormat = formatString;
+
+  Object
+    .keys(formatMap)
+    .forEach((token) => {
+      timeFormat = timeFormat.replace(token, formatMap[token]);
+    });
+
+  return timeFormat;
+}
