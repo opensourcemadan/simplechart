@@ -146,8 +146,9 @@ BritechartsAdapter.propTypes = {
 };
 
 function mapStateToProps(state) {
+  const { formatString } = state.chartOptions.dateFormat;
   return {
-    timeFormat: getD3TimeFormat(state.dateFormat.formatString),
+    timeFormat: formatString ? getD3TimeFormat(formatString) : undefined,
   };
 }
 
